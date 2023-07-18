@@ -3,35 +3,13 @@ import axios from "axios";
 
 const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
-  const [latitude, setLatitude] = useState(null);
-  const [longitude, setLongitude] = useState(null);
 
   useEffect(() => {
-
-    const getLocation = () => {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              setLatitude(position.coords.latitude);
-              setLongitude(position.coords.longitude);
-            },
-            (error) => {
-              console.error('Error getting location:', error);
-            }
-          );
-
-          console.log(typeof latitude);
-        } else {
-          console.error('Geolocation is not supported by this browser.');
-        }
-      };
-
-      getLocation();
 
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://api.weatherapi.com/v1/current.json?key=82d47dd3dcc341b5bf9223445231707&q="+ latitude+','+longitude+"&aqi=no"
+          "https://api.weatherapi.com/v1/forecast.json?key=82d47dd3dcc341b5bf9223445231707&q=auto:ip&days=5&aqi=no"
         ); // Replace with your API endpoint
         setWeatherData(response.data);
         console.log(response.data);
@@ -64,6 +42,9 @@ const Weather = () => {
           ></img>
           <p id="temp">{weatherData["current"]["temp_c"] + '°C'}</p>
           <p>{weatherData["current"]["condition"]["text"]}</p>
+          <div className="forecast">
+
+          </div>
         </div>
       ) : (
         <p className="w-nodata">Loading weather data...</p>
