@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css?family=McLaren");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+p {
+  font-family: "McLaren", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  display: flex;
+  background-color: rgb(233, 218, 82);
+  height: 6rem;
+}
+
+header p {
+  margin: auto;
+  font-size: 2rem;
+  font-weight: 900;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(29, 44, 58);
+}
+
+body {
+  margin: 0;
+  background-color: rgb(29, 44, 58);
+}
+
+footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
+
+footer p {
+  color: white;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .date {
+  font-size: xx-large;
+  color: white;
+}
+
+.container .time {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: 42px;
+  color: white;
+  gap: 10px;
+}
+
+.container .time p {
+  background-color: rgb(97, 95, 95);
+  width: 50px;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+
+
+
+
+/*
+ weather component
+*/
+
+.container .w-data img {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container .w-data p {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-self: start;
+  color: white;
+}
+
+.container .w-data #city {
+  font-size: 56px;
+  font-weight: 900;
+}
+
+.container .w-data #temp {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-self: start;
+  font-size: 56px;
+}
+
+.container .w-nodata p {
+  color: white;
+}
