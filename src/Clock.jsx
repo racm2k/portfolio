@@ -8,7 +8,7 @@ function Clock() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="clock-container">
       <p className="date">{dateState.toDateString()}</p>
       <div className="time">
         <p id="hours">{(dateState.getHours() <10?'0':'') + dateState.getHours()}</p>

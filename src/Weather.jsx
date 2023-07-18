@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import WeatherSlide from "./WeatherSlide";
 
 const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
         const response = await axios.get(
@@ -18,8 +18,10 @@ const Weather = () => {
       }
     };
     fetchData();
-    setInterval(() => fetchData(), 300000);
   }, []);
+
+
+
 
   return (
     <div className="container">
@@ -40,15 +42,21 @@ const Weather = () => {
             }
             alt={weatherData["current"]["condition"]["text"]}
           ></img>
-          <p id="temp">{weatherData["current"]["temp_c"] + '°C'}</p>
-          <p>{weatherData["current"]["condition"]["text"]}</p>
-          <div className="forecast">
+          <p id="temp">{weatherData["current"]["temp_c"] + "°C"}</p>
+          <div className="conditions">
 
+          <p>{weatherData && weatherData.forecast.forecastday[0].day.maxtemp_c}°/{weatherData && weatherData.forecast.forecastday[0].day.mintemp_c}°</p>
+          <p>{weatherData["current"]["condition"]["text"]}</p>
           </div>
         </div>
       ) : (
         <p className="w-nodata">Loading weather data...</p>
       )}
+      { weatherData &&
+      <WeatherSlide weatherData={weatherData}></WeatherSlide>
+}
+      
+      
     </div>
   );
 };

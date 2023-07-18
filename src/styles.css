@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 p {
-  font-family: "McLaren", sans-serif;
+  font-family: "McLaren", sans-serif ;
 }
 
 h1,
@@ -20,9 +20,9 @@ header {
   height: 6rem;
 }
 
-header p {
+header h1 {
   margin: auto;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 900;
   font-family: "Montserrat", sans-serif;
   color: rgb(29, 44, 58);
@@ -31,6 +31,7 @@ header p {
 body {
   margin: 0;
   background-color: rgb(29, 44, 58);
+  color: white;
 }
 
 footer {
@@ -41,11 +42,15 @@ footer {
   height: 2.5rem;
 }
 
-footer p {
-  color: white;
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px;
 }
 
-.container {
+.clock-container {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -53,20 +58,18 @@ footer p {
   justify-content: center;
 }
 
-.container .date {
+.clock-container .date {
   font-size: xx-large;
-  color: white;
 }
 
-.container .time {
+.clock-container .time {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   font-size: 42px;
-  color: white;
   gap: 10px;
 }
 
-.container .time p {
+.clock-container .time p {
   background-color: rgb(97, 95, 95);
   width: 50px;
   border-radius: 10px;
@@ -74,12 +77,16 @@ footer p {
   text-align: center;
 }
 
-
-
-
 /*
  weather component
 */
+
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px;
+}
 
 .container .w-data img {
   width: 150px;
@@ -95,12 +102,12 @@ footer p {
   flex-direction: column;
   align-items: center;
   justify-self: start;
-  color: white;
 }
 
 .container .w-data #city {
   font-size: 56px;
   font-weight: 900;
+  text-align: center;
 }
 
 .container .w-data #temp {
@@ -112,6 +119,92 @@ footer p {
   font-size: 56px;
 }
 
-.container .w-nodata p {
-  color: white;
+.conditions{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 900;
+  text-align: center;
+  gap: 20px;
+  list-style: none;
 }
+
+
+
+
+/*
+  slider component
+*/
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  
+}
+
+.slider-container #hour{
+  margin: 0;
+  text-align: center;
+  font-size: 36px;
+}
+
+.slider {
+  margin: 50px 0;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: rgb(250, 248, 248);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 0;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 23px;
+  height: 25px;
+  border: 0;
+  border-radius: 50%;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.table{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.table tbody tr td{
+  text-align: center;
+  font-size: 16px;
+  font-family: 'McLaren',sans-serif;
+}
+
+
+
